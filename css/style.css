@@ -709,6 +709,7 @@ body {
     justify-content: center;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-decoration: none;
 }
 
 .scroll-top-btn:hover {
