@@ -5,37 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Yurmayur Bintan - Sambal Lingkung Ikan Tongkol Autentik dari Melayu Bintan">
     <title>Yurmayur Bintan - Sambal Lingkung Ikan Tongkol</title>
-    <!-- CSS Stylesheet - Pastikan path ini benar -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- HEADER: Navigasi utama dengan logo dan menu -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <!-- Logo Brand -->
-                    <div class="logo">
+    <header class="main-header">
+        <nav class="navigation-bar">
+            <div class="content-wrapper">
+                <div class="nav-container">
+                    <!-- Logo Brand Yurmayur -->
+                    <div class="brand-logo">
                         <img src="images/logo_yurmayur.png" alt="Yurmayur Bintan Logo">
-                        <div class="logo-text">
-                            <span class="brand-name">YURMAYUR</span>
-                            <span class="brand-subtitle">BINTAN</span>
+                        <div class="brand-text">
+                            <span class="company-name">YURMAYUR</span>
+                            <span class="company-location">BINTAN</span>
                         </div>
                     </div>
                     
                     <!-- Hamburger Menu - Tampil di mobile -->
-                    <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                     
                     <!-- Menu Navigasi - Link ke halaman lain -->
-                    <ul class="nav-menu" id="navMenu">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                    <ul class="navigation-menu" id="navigationMenu">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,26 +42,26 @@
     </header>
 
     <!-- HERO SECTION: Tampilan utama produk dengan gambar dan deskripsi -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
+    <section class="product-showcase">
+        <div class="content-wrapper">
+            <div class="showcase-grid">
                 <!-- Gambar Produk Kiri - Mangkuk Sambal -->
-                <div class="hero-image">
+                <div class="product-image-left">
                     <img src="images/sambal.png" alt="Sambal Lingkung Ikan Tongkol">
                 </div>
                 
                 <!-- Konten Tengah - Judul dan Keunggulan -->
-                <div class="hero-text">
-                    <h1 class="hero-title">SAMBAL LINGKUNG IKAN TONGKOL</h1>
-                    <p class="hero-description">
+                <div class="product-info">
+                    <h1 class="product-title">SAMBAL LINGKUNG IKAN TONGKOL</h1>
+                    <p class="product-description">
                         Rasakan cita rasa khas Bintan yang autentik,<br>
                         dibuat dari bahan segar dan resep tradisional.
                     </p>
                     
                     <!-- List Keunggulan Produk -->
-                    <div class="features">
+                    <div class="product-benefits">
                         <h3>Keunggulan :</h3>
-                        <ul class="features-list">
+                        <ul class="benefits-list">
                             <li>✓ 100% Homemade</li>
                             <li>✓ Tahan Lama</li>
                             <li>✓ Rasa Autentik</li>
@@ -71,7 +70,7 @@
                 </div>
                 
                 <!-- Gambar Produk Kanan - Container Toples -->
-                <div class="hero-product-image">
+                <div class="product-image-right">
                     <img src="images/produk.png" alt="Produk Yurmayur">
                 </div>
             </div>
@@ -79,37 +78,37 @@
     </section>
 
     <!-- GALLERY PREVIEW: Preview galeri dengan tombol lihat selengkapnya -->
-    <section class="gallery-preview">
-        <div class="container">
-            <h2 class="section-title">GALLERY</h2>
-            <p class="section-description">
+    <section class="gallery-section">
+        <div class="content-wrapper">
+            <h2 class="section-heading">GALLERY</h2>
+            <p class="section-text">
                 Dari dapur Melayu Bintan yang penuh cita rasa, lahirlah Sambal Lingkung Ikan Tongkol, olahan<br>
                 khas yang memadukan kelembutan daging ikan dengan aroma kelapa sangrai dan bumbu<br>
                 rempah pilihan.
             </p>
             
             <!-- Gambar Utama Gallery -->
-            <div class="gallery-image-container">
-                <img src="images/produk1.png" alt="Sambal Lingkung Yurmayur" class="gallery-main-image">
+            <div class="gallery-preview-box">
+                <img src="images/produk1.png" alt="Sambal Lingkung Yurmayur" class="preview-image">
             </div>
             
             <!-- Navigasi Gallery - Arrow dan Button -->
-            <div class="gallery-nav">
-                <button class="gallery-arrow">❮❮</button>
-                <button class="gallery-btn">Lihat Selengkapnya</button>
-                <button class="gallery-arrow">❯❯</button>
+            <div class="gallery-controls">
+                <button class="control-arrow">❮❮</button>
+                <button class="view-gallery-btn">Lihat Selengkapnya</button>
+                <button class="control-arrow">❯❯</button>
             </div>
         </div>
     </section>
 
     <!-- STORE LOCATION: Informasi alamat dan foto toko -->
-    <section class="store-location">
-        <div class="container">
-            <h2 class="section-title">Yurmayur Bintan Stores</h2>
+    <section class="store-info-section">
+        <div class="content-wrapper">
+            <h2 class="section-heading">Yurmayur Bintan Stores</h2>
             
-            <div class="store-content">
+            <div class="store-details-grid">
                 <!-- Alamat Lengkap Toko -->
-                <div class="store-address">
+                <div class="store-address-box">
                     <h3>Alamat</h3>
                     <p>
                         Jl. Beringin Indah Barat,<br>
@@ -119,7 +118,7 @@
                 </div>
                 
                 <!-- Foto Tampak Depan Toko -->
-                <div class="store-image">
+                <div class="store-photo">
                     <img src="images/toko.png" alt="Toko Yurmayur Bintan">
                 </div>
             </div>
@@ -127,20 +126,20 @@
     </section>
 
     <!-- CALL TO ACTION: Ajakan untuk pesan produk -->
-    <section class="cta-section">
-        <div class="container">
-            <p class="cta-text">Tertarik dengan jualan kami?</p>
-            <span class="cta-arrow">⌄</span> <!-- Arrow animated -->
-            <a href="contact.html" class="cta-button">Pesan Sekarang</a>
+    <section class="order-cta-section">
+        <div class="content-wrapper">
+            <p class="cta-question">Tertarik dengan jualan kami?</p>
+            <span class="animated-arrow">⌄</span> <!-- Arrow animated -->
+            <a href="contact.html" class="order-now-btn">Pesan Sekarang</a>
         </div>
     </section>
 
     <!-- FOOTER: Navigasi footer dan informasi copyright -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
+    <footer class="site-footer">
+        <div class="content-wrapper">
+            <div class="footer-grid">
                 <!-- Kolom Navigasi -->
-                <div class="footer-column">
+                <div class="footer-menu-column">
                     <h4>Navigasi</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -150,7 +149,7 @@
                 </div>
                 
                 <!-- Kolom Contact -->
-                <div class="footer-column">
+                <div class="footer-menu-column">
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="https://wa.me/6281270019938">Whatsapp</a></li>
@@ -159,7 +158,7 @@
                 </div>
                 
                 <!-- Kolom Social Media -->
-                <div class="footer-column">
+                <div class="footer-menu-column">
                     <h4>Social Media</h4>
                     <ul>
                         <li><a href="https://facebook.com">Facebook</a></li>
@@ -168,7 +167,7 @@
             </div>
             
             <!-- Copyright dan Tagline -->
-            <div class="footer-bottom">
+            <div class="copyright-section">
                 <p>Taste the Authentic — Sambal Lingkung by Yurmayur</p>
                 <p>&copy; 2025 Yurmayur Bintan. All Rights Reserved</p>
             </div>
