@@ -1,4 +1,6 @@
-/* RESET & BASE STYLES - Reset default browser styling */
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,20 +12,28 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #fff;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
-/* CONTENT WRAPPER - Wrapper untuk konten dengan max-width */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================
+   CONTENT WRAPPER
+   ========================================== */
 .content-wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* MAIN HEADER & NAVIGATION - Sticky header dengan navbar */
+/* ==========================================
+   MAIN HEADER & NAVIGATION
+   ========================================== */
 .main-header {
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -39,7 +49,6 @@ body {
     align-items: center;
 }
 
-/* BRAND LOGO - Logo Yurmayur dengan text */
 .brand-logo {
     display: flex;
     align-items: center;
@@ -69,7 +78,6 @@ body {
     color: #666;
 }
 
-/* NAVIGATION MENU - Menu links horizontal */
 .navigation-menu {
     display: flex;
     list-style: none;
@@ -83,6 +91,16 @@ body {
     font-size: 1rem;
     transition: color 0.3s;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link svg {
+    width: 20px;
+    height: 20px;
+    stroke: #333;
+    transition: stroke 0.3s;
 }
 
 .nav-link:hover,
@@ -90,7 +108,11 @@ body {
     color: #2d5016;
 }
 
-/* Active link indicator - Underline untuk link aktif */
+.nav-link:hover svg,
+.nav-link.active svg {
+    stroke: #2d5016;
+}
+
 .nav-link.active::after {
     content: '';
     position: absolute;
@@ -101,7 +123,6 @@ body {
     background-color: #2d5016;
 }
 
-/* MOBILE MENU TOGGLE - Hamburger button untuk mobile */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -119,7 +140,6 @@ body {
     border-radius: 2px;
 }
 
-/* Mobile menu animation - Transform menjadi X saat active */
 .mobile-menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(8px, 8px);
 }
@@ -132,131 +152,114 @@ body {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* PRODUCT SHOWCASE - Hero section produk utama */
+/* ==========================================
+   PRODUCT SHOWCASE - HOME PAGE
+   ========================================== */
 .product-showcase {
     padding: 3rem 0 4rem;
     background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
-    min-height: 600px;
+    min-height: calc(100vh - 90px);
     display: flex;
     align-items: center;
 }
 
-.showcase-grid {
-    display: grid;
-    grid-template-columns: 0.8fr 1.5fr 1fr;
-    gap: 2rem;
-    align-items: center;
+.product-showcase .content-wrapper {
+    animation: fadeInUp 0.8s ease-out;
 }
 
-/* Kolom Kiri - 2 Gambar Horizontal Tumpuk */
-.product-images-column {
-    display: flex;
-    flex-direction: row;
-    gap: 0;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    padding-left: 0;
-}
-
-.product-images-column::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 160px;
-    height: 320px;
-    background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
-    z-index: 0;
-    border-radius: 2px;
-}
-
-.product-image-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-}
-
-.product-image-item:nth-child(1) {
-    z-index: 1;
-    margin-right: -140px;
-    margin-left: -20px;
-    margin-top: 70px;
-}
-
-.product-image-item:nth-child(2) {
-    z-index: 2;
-    margin-top: -50px;
-}
-
-.product-image-item:nth-child(3) {
-    display: none;
-}
-
-.product-image-item img {
-    width: 100%;
-    max-width: 360px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.4));
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.product-image-item img:hover {
-    transform: scale(1.03) translateY(-5px);
-    filter: drop-shadow(0 20px 45px rgba(0,0,0,0.5));
-}
-
-/* Product images - Gambar produk kanan */
-.product-image-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.product-image-right img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
-}
-
-/* Product info - Konten tengah dengan judul dan deskripsi */
-.product-info {
-    text-align: center;
-    padding: 0 1rem;
+.product-header {
+    text-align: left;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out;
 }
 
 .product-title {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #000;
-    margin-bottom: 1.5rem;
-    line-height: 1.3;
+    margin-bottom: 1rem;
+    line-height: 1.2;
     letter-spacing: 0.5px;
+    animation: slideInFromLeft 0.8s ease-out;
 }
 
 .product-description {
     font-size: 1rem;
     color: #555;
-    margin-bottom: 2.5rem;
     line-height: 1.7;
+    animation: slideInFromLeft 1s ease-out 0.2s both;
 }
 
-/* PRODUCT BENEFITS - Keunggulan produk */
+.showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.product-images-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: fadeInLeft 1s ease-out 0.2s both;
+}
+
+.product-images-column::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: #000;
+    border-radius: 50%;
+    z-index: 0;
+    animation: scaleIn 0.8s ease-out 0.3s both;
+}
+
+.product-images-column .product-image-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.product-images-column .product-image-item img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.product-images-column .product-image-item img:hover {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.5));
+}
+
+/* RIGHT SECTION: POIN DI TENGAH, 3 GAMBAR DI KANAN */
+.product-right-section {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    animation: fadeInRight 1s ease-out 0.4s both;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* POIN-POIN KEUNGGULAN - TENGAH KIRI */
 .product-benefits {
-    display: inline-block;
     text-align: left;
+    flex: 0 0 auto;
 }
 
 .product-benefits h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
     color: #333;
+    font-weight: bold;
 }
 
 .benefits-list {
@@ -264,13 +267,109 @@ body {
 }
 
 .benefits-list li {
-    font-size: 1.05rem;
-    margin-bottom: 0.7rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
     color: #333;
-    font-weight: 500;
+    font-weight: 600;
+    animation: slideInLeft 0.5s ease-out both;
 }
 
-/* GALLERY SECTION - Preview gallery di homepage */
+.benefits-list li:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.benefits-list li:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.benefits-list li:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+/* 3 GAMBAR - KANAN */
+.product-images-right {
+    position: relative;
+    width: 480px;
+    height: 380px;
+    flex-shrink: 0;
+}
+
+/* Background Hitam - Memanjang dari atas ke bawah, lebih panjang dan lebar */
+.product-images-right .product-image-item:nth-child(3) {
+    position: absolute;
+    width: 320px;
+    height: 360px;
+    border-radius: 25px;
+    overflow: hidden;
+    right: 25px;
+    top: 0;
+    z-index: 1;
+    animation: fadeIn 0.6s ease-out 0.9s both;
+}
+
+.product-images-right .product-image-item:nth-child(3) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sambal Kiri - Diperbesar Sampai Sudut Background, Lebih ke Atas */
+.product-images-right .product-image-item:nth-child(1) {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 20px;
+    overflow: visible;
+    filter: drop-shadow(0 12px 35px rgba(0, 0, 0, 0.35));
+    left: 0;
+    bottom: 60px;
+    z-index: 3;
+    transition: all 0.3s ease;
+    animation: zoomIn 0.6s ease-out 1s both;
+}
+
+.product-images-right .product-image-item:nth-child(1) img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+/* Sambal Kanan - Diperbesar Mengikuti Kiri, Lebih Dempet Lagi */
+.product-images-right .product-image-item:nth-child(2) {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 18px;
+    overflow: visible;
+    filter: drop-shadow(0 12px 35px rgba(0, 0, 0, 0.35));
+    left: 190px;
+    bottom: 20px;
+    z-index: 2;
+    transition: all 0.3s ease;
+    animation: zoomIn 0.6s ease-out 1.1s both;
+}
+
+.product-images-right .product-image-item:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 18px;
+}
+
+.product-images-right .product-image-item:nth-child(1):hover,
+.product-images-right .product-image-item:nth-child(2):hover {
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4));
+    z-index: 4;
+}
+
+.product-images-right .product-image-item:hover img {
+    transform: scale(1.05);
+}
+
+/* GALLERY SECTION - HOME PAGE
+   ========================================== */
 .gallery-section {
     padding: 4rem 0 4.5rem;
     background-color: #fff;
@@ -283,6 +382,7 @@ body {
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
     color: #000;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .section-text {
@@ -291,29 +391,41 @@ body {
     margin-bottom: 3.5rem;
     line-height: 1.9;
     font-size: 1rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-/* Gallery preview box - Wrapper untuk gambar utama */
 .gallery-preview-box {
     max-width: 650px;
     margin: 0 auto 2.5rem;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: scaleIn 0.8s ease-out 0.4s both;
+}
+
+.gallery-preview-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .preview-image {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.5s ease;
 }
 
-/* GALLERY CONTROLS - Arrow buttons dan tombol lihat selengkapnya */
+.gallery-preview-box:hover .preview-image {
+    transform: scale(1.05);
+}
+
 .gallery-controls {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
 }
 
 .control-arrow {
@@ -322,13 +434,14 @@ body {
     font-size: 1.8rem;
     cursor: pointer;
     color: #333;
-    transition: color 0.3s, transform 0.3s;
+    transition: all 0.3s ease;
     font-weight: bold;
 }
 
 .control-arrow:hover {
     color: #2d5016;
-    transform: scale(1.1);
+    transform: scale(1.3);
+    animation: shake 0.5s;
 }
 
 .view-gallery-btn {
@@ -340,15 +453,38 @@ body {
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.view-gallery-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(45, 80, 22, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.view-gallery-btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .view-gallery-btn:hover {
     background-color: #2d5016;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(45, 80, 22, 0.4);
 }
 
-/* STORE INFO SECTION - Informasi alamat toko */
+/* ==========================================
+   STORE INFO SECTION
+   ========================================== */
 .store-info-section {
     padding: 4rem 0;
     background-color: #f8f8f8;
@@ -362,7 +498,10 @@ body {
     margin-top: 2.5rem;
 }
 
-/* Store address box - Text alamat lengkap */
+.store-address-box {
+    animation: fadeInLeft 0.8s ease-out;
+}
+
 .store-address-box h3 {
     font-size: 1.6rem;
     margin-bottom: 1.2rem;
@@ -376,19 +515,27 @@ body {
     font-size: 1rem;
 }
 
-/* Store photo - Foto toko */
 .store-photo {
     position: relative;
+    animation: fadeInRight 0.8s ease-out;
 }
 
 .store-photo img {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
 }
 
-/* ORDER CTA SECTION - Call to action untuk pesan */
+.store-photo img:hover {
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================
+   ORDER CTA SECTION
+   ========================================== */
 .order-cta-section {
     padding: 3.5rem 0;
     text-align: center;
@@ -400,9 +547,9 @@ body {
     color: #333;
     margin-bottom: 0.8rem;
     font-weight: 500;
+    animation: fadeInUp 0.6s ease-out;
 }
 
-/* Animated arrow - Arrow bergerak bounce */
 .animated-arrow {
     display: block;
     font-size: 2.5rem;
@@ -411,13 +558,6 @@ body {
     animation: bounce 2s infinite;
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-/* Order now button - Tombol pesan sekarang */
 .order-now-btn {
     display: inline-block;
     background-color: #000;
@@ -427,16 +567,43 @@ body {
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.order-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(45, 80, 22, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.order-now-btn:hover::before {
+    width: 350px;
+    height: 350px;
 }
 
 .order-now-btn:hover {
     background-color: #2d5016;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(45, 80, 22, 0.4);
 }
 
-/* SITE FOOTER - Footer dengan navigasi dan copyright */
+.order-now-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* ==========================================
+   SITE FOOTER
+   ========================================== */
 .site-footer {
     background-color: #000;
     color: #fff;
@@ -450,7 +617,6 @@ body {
     margin-bottom: 2.5rem;
 }
 
-/* Footer menu column - Kolom navigasi, contact, dan social media */
 .footer-menu-column h4 {
     font-size: 1.2rem;
     margin-bottom: 1.2rem;
@@ -476,7 +642,6 @@ body {
     color: #4CAF50;
 }
 
-/* Copyright section - Copyright text */
 .copyright-section {
     text-align: center;
     padding-top: 2rem;
@@ -492,8 +657,6 @@ body {
 /* ==========================================
    GALLERY PAGE STYLES
    ========================================== */
-
-/* PAGE INTRO - Header untuk halaman gallery */
 .page-intro {
     padding: 3.5rem 0;
     text-align: center;
@@ -506,6 +669,7 @@ body {
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
     color: #000;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .page-subtitle {
@@ -514,9 +678,9 @@ body {
     font-size: 1rem;
     max-width: 900px;
     margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
-/* GALLERY CONTENT - Konten utama gallery page */
 .gallery-content {
     padding: 3rem 0 4rem;
     background-color: #fafafa;
@@ -527,16 +691,27 @@ body {
     margin: 0 auto 4.5rem;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    animation: scaleIn 0.8s ease-out 0.3s both;
+    transition: all 0.4s ease;
+}
+
+.featured-product-box:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
 }
 
 .featured-product-image {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.5s ease;
 }
 
-/* COOKING SECTION - Section proses memasak */
+.featured-product-box:hover .featured-product-image {
+    transform: scale(1.05);
+}
+
 .cooking-section {
     margin: 4.5rem 0;
     background-color: #fff;
@@ -549,18 +724,22 @@ body {
     margin-bottom: 3rem;
     font-weight: bold;
     color: #000;
+    animation: fadeInUp 0.6s ease-out;
 }
 
-.cooking-details-grid {
+.cooking-details-grid-modified {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Cooking description - Deskripsi proses */
+.cooking-description {
+    animation: fadeInLeft 0.8s ease-out 0.2s both;
+}
+
 .cooking-description p {
     font-size: 1.1rem;
     line-height: 2;
@@ -568,58 +747,73 @@ body {
     margin-bottom: 2.5rem;
 }
 
-/* Cooking photo - Foto proses memasak */
 .cooking-photo {
     position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    animation: fadeInRight 0.8s ease-out 0.2s both;
 }
 
 .cooking-photo img {
     width: 100%;
     height: auto;
     border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
 }
 
-/* PRODUCTS SHOWCASE GRID - Grid 2 kolom untuk foto produk */
+.cooking-photo img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
 .products-showcase-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
     margin-top: 4rem;
-    max-width: 1000px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Product card - Individual item dengan hover effect */
 .product-card {
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s ease;
+    max-width: 400px;
+    margin: 0 auto;
+    animation: zoomIn 0.6s ease-out both;
+}
+
+.product-card:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.product-card:nth-child(2) {
+    animation-delay: 0.5s;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .product-card img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s;
+    transition: transform 0.5s ease;
 }
 
 .product-card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(2deg);
 }
 
 /* ==========================================
    CONTACT PAGE STYLES
    ========================================== */
-
-/* CONTACT BANNER - Header halaman contact dengan background hitam */
 .contact-banner {
     background-color: #000;
     color: #fff;
@@ -632,20 +826,22 @@ body {
     font-weight: bold;
     margin-bottom: 1rem;
     letter-spacing: 1px;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .banner-subtitle {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .banner-tagline {
     font-size: 1.05rem;
     color: #bbb;
+    animation: fadeInUp 1s ease-out 0.4s both;
 }
 
-/* CONTACT METHODS SECTION - Section dengan metode kontak */
 .contact-methods-section {
     padding: 4.5rem 0;
     background-color: #fff;
@@ -657,9 +853,9 @@ body {
     margin-bottom: 4rem;
     line-height: 1.9;
     font-size: 1rem;
+    animation: fadeInUp 0.6s ease-out;
 }
 
-/* CONTACT OPTIONS GRID - Grid 3 kolom untuk phone, whatsapp, facebook */
 .contact-options-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -670,14 +866,26 @@ body {
 
 .contact-option-card {
     text-align: center;
-    transition: transform 0.3s;
+    transition: all 0.4s ease;
+    animation: zoomIn 0.6s ease-out both;
+}
+
+.contact-option-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.contact-option-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.contact-option-card:nth-child(3) {
+    animation-delay: 0.6s;
 }
 
 .contact-option-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.05);
 }
 
-/* Option icon circle - Circle icon container */
 .option-icon-circle {
     width: 90px;
     height: 90px;
@@ -687,11 +895,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
+    transition: all 0.4s ease;
 }
 
 .contact-option-card:hover .option-icon-circle {
     background-color: #e8f5e9;
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 8px 25px rgba(45, 80, 22, 0.3);
 }
 
 .option-icon-circle svg {
@@ -699,6 +909,11 @@ body {
     height: 45px;
     stroke: #2d5016;
     stroke-width: 2.5;
+    transition: all 0.3s ease;
+}
+
+.contact-option-card:hover .option-icon-circle svg {
+    stroke: #1a3009;
 }
 
 .contact-option-card h3 {
@@ -712,20 +927,35 @@ body {
     color: #333;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
     font-weight: 500;
+    position: relative;
+}
+
+.contact-option-card a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #2d5016;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.contact-option-card a:hover::after {
+    width: 100%;
 }
 
 .contact-option-card a:hover {
     color: #2d5016;
 }
 
-/* CONTACT PAGE STORE - Store location di contact page */
 .contact-page-store {
     background-color: #f8f8f8;
 }
 
-/* Address icon circle - Icon pin lokasi */
 .address-icon-circle {
     width: 70px;
     height: 70px;
@@ -735,7 +965,14 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    animation: rotateIn 0.8s ease-out;
+}
+
+.address-icon-circle:hover {
+    transform: scale(1.15) rotate(360deg);
+    box-shadow: 0 8px 25px rgba(45, 80, 22, 0.3);
 }
 
 .address-icon-circle svg {
@@ -745,10 +982,10 @@ body {
     stroke-width: 2.5;
 }
 
-/* BACK HOME BUTTON - Tombol kembali ke home (contact page) */
 .back-home-button-wrapper {
     text-align: center;
     margin-top: 3.5rem;
+    animation: fadeInUp 1s ease-out 0.5s both;
 }
 
 .back-home-btn {
@@ -762,15 +999,16 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-decoration: none;
 }
 
 .back-home-btn:hover {
     background-color: #2d5016;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(45, 80, 22, 0.3);
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 12px 30px rgba(45, 80, 22, 0.4);
+    animation: pulseGlow 1.5s infinite;
 }
 
 .back-home-btn svg {
@@ -778,56 +1016,215 @@ body {
     height: 28px;
     stroke: #fff;
     stroke-width: 3;
+    transition: transform 0.3s ease;
+}
+
+.back-home-btn:hover svg {
+    transform: translateY(-3px);
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN - TABLET
+   ANIMATIONS & KEYFRAMES
    ========================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes fadeInLeft {
+    from { 
+        opacity: 0; 
+        transform: translateX(-50px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+@keyframes fadeInRight {
+    from { 
+        opacity: 0; 
+        transform: translateX(50px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+@keyframes slideInLeft {
+    from { 
+        opacity: 0; 
+        transform: translateX(-30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.8); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+@keyframes zoomIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.5); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(-10px); 
+    }
+}
+
+@keyframes floatSlow {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-15px) rotate(2deg); 
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { 
+        transform: translateY(0); 
+    }
+    40% { 
+        transform: translateY(-10px); 
+    }
+    60% { 
+        transform: translateY(-5px); 
+    }
+}
+
+@keyframes shake {
+    0%, 100% { 
+        transform: translateX(0); 
+    }
+    25% { 
+        transform: translateX(-5px); 
+    }
+    75% { 
+        transform: translateX(5px); 
+    }
+}
+
+@keyframes pulse {
+    0% { 
+        box-shadow: 0 0 0 0 rgba(45, 80, 22, 0.7); 
+    }
+    70% { 
+        box-shadow: 0 0 0 15px rgba(45, 80, 22, 0); 
+    }
+    100% { 
+        box-shadow: 0 0 0 0 rgba(45, 80, 22, 0); 
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(45, 80, 22, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(45, 80, 22, 0.6);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET (992px)
+   ========================================== */
 @media (max-width: 992px) {
-    /* Product showcase jadi single column */
-    .showcase-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-    
-    .product-images-column {
-        flex-direction: row;
-        gap: 1rem;
-        order: 0;
-    }
-    
-    .product-image-item img {
-        max-width: 150px;
-    }
-    
-    .product-info {
-        order: 1;
-    }
-    
-    .product-image-right {
-        order: 2;
-    }
-    
-    /* Cooking details jadi single column */
-    .cooking-details-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-    
-    /* Contact options jadi single column */
-    .contact-options-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
+    .showcase-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .product-header { text-align: center; }
+    .product-images-column::before { width: 320px; height: 320px; }
+    .product-images-column .product-image-item img { max-width: 350px; }
+    .product-right-section { flex-direction: column; align-items: center; }
+    .product-benefits { text-align: center; }
+    .product-images-right { margin: 0 auto; }
+    .cooking-details-grid-modified { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-options-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .store-details-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
 }
 
 /* ==========================================
    RESPONSIVE DESIGN - MOBILE
    ========================================== */
-
 @media (max-width: 768px) {
-    /* MOBILE NAVIGATION - Hamburger menu toggle */
     .mobile-menu-toggle {
         display: flex;
     }
@@ -851,25 +1248,16 @@ body {
     }
     
     .navigation-menu.active {
-        left: 0; /* Show menu saat active */
+        left: 0;
     }
     
-    /* PRODUCT SHOWCASE MOBILE - Reduce size dan spacing */
     .product-showcase {
         padding: 2rem 0 3rem;
     }
     
-    .product-images-column {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .product-image-item img {
-        max-width: 180px;
-    }
-    
-    .product-image-right img {
-        max-width: 280px;
+    .product-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
     }
     
     .product-title {
@@ -880,26 +1268,67 @@ body {
         font-size: 0.95rem;
     }
     
-    /* STORE DETAILS MOBILE - Single column */
+    .product-images-column::before {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .product-images-column .product-image-item img {
+        max-width: 300px;
+    }
+    
+    .product-right-section {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .product-benefits {
+        text-align: center;
+    }
+    
+    .product-images-right {
+        width: 300px;
+        height: 280px;
+        margin: 0 auto;
+    }
+    
+    .product-images-right .product-image-item:nth-child(3) {
+        width: 220px;
+        height: 220px;
+        right: 0;
+        top: 0;
+    }
+    
+    .product-images-right .product-image-item:nth-child(1) {
+        width: 150px;
+        height: 150px;
+        left: 0;
+        top: 25px;
+    }
+    
+    .product-images-right .product-image-item:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        left: 130px;
+        top: 110px;
+    }
+    
     .store-details-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
-    /* FOOTER MOBILE - Center alignment */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
     }
     
-    /* PRODUCTS SHOWCASE MOBILE - Single column */
     .products-showcase-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
-    /* TITLES MOBILE - Smaller font size */
     .section-heading {
         font-size: 2.2rem;
     }
@@ -916,14 +1345,61 @@ body {
 /* ==========================================
    RESPONSIVE DESIGN - SMALL MOBILE
    ========================================== */
-
 @media (max-width: 480px) {
+    .product-header {
+        text-align: center;
+    }
+    
     .product-title {
         font-size: 1.5rem;
     }
     
-    .product-image-item img {
-        max-width: 150px;
+    .product-description {
+        font-size: 0.9rem;
+    }
+    
+    .product-images-column::before {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .product-images-column .product-image-item img {
+        max-width: 260px;
+    }
+    
+    .product-right-section {
+        align-items: center;
+    }
+    
+    .product-benefits {
+        text-align: center;
+    }
+    
+    .product-images-right {
+        width: 260px;
+        height: 240px;
+        margin: 0 auto;
+    }
+    
+    .product-images-right .product-image-item:nth-child(3) {
+        width: 190px;
+        height: 190px;
+        right: 0;
+        top: 0;
+    }
+    
+    .product-images-right .product-image-item:nth-child(1) {
+        width: 130px;
+        height: 130px;
+        left: 0;
+        top: 20px;
+    }
+    
+    .product-images-right .product-image-item:nth-child(2) {
+        width: 105px;
+        height: 105px;
+        left: 110px;
+        top: 95px;
     }
     
     .section-heading {
@@ -939,53 +1415,8 @@ body {
         font-size: 1rem;
     }
     
-    /* Gallery controls jadi vertical */
     .gallery-controls {
         flex-direction: column;
         gap: 1rem;
     }
-}
-
-/* ==========================================
-   ANIMATIONS & TRANSITIONS
-   ========================================== */
-
-/* Smooth scroll behavior */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Fade in animation - Untuk element yang masuk viewport */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.showcase-grid,
-.gallery-section,
-.store-info-section {
-    animation: fadeIn 0.8s ease-out;
-}
-
-/* Pulse animation - Untuk CTA button focus */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(45, 80, 22, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(45, 80, 22, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(45, 80, 22, 0);
-    }
-}
-
-.order-now-btn:focus {
-    animation: pulse 1.5s infinite;
 }
